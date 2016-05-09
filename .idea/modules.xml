@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MeshDemo.iml" filepath="$PROJECT_DIR$/MeshDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beziertool/beziertool.iml" filepath="$PROJECT_DIR$/beziertool/beziertool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/meshview2/meshview2.iml" filepath="$PROJECT_DIR$/meshview2/meshview2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pathopdemo/pathopdemo.iml" filepath="$PROJECT_DIR$/pathopdemo/pathopdemo.iml" />
     </modules>
   </component>
 </project>

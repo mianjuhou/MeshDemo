@@ -1,1 +1,1 @@
-include ':app', ':pathopdemo', ':meshview2', ':beziertool'
+include ':app', ':pathopdemo', ':Inhale', ':beziertool'

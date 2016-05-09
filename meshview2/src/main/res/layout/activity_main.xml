@@ -33,11 +33,12 @@
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="HelloWorld"
+            android:text="Hello"
             android:textSize="50sp"
             android:gravity="center"
             android:background="@android:color/holo_red_dark"
-            android:layout_below="@id/rl_title"/>
+            android:layout_below="@id/rl_title"
+            android:layout_marginTop="100dp"/>
 
         <Button
             android:layout_width="wrap_content"

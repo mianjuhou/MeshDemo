@@ -80,10 +80,10 @@ public class MeshView extends View{
         mPath.moveTo((mLeft+mRight)/2,mTop);
         mPath.lineTo(startX,startY);
         mPath.cubicTo(
-                (float) (startX+(endX-startX)*0.14),//
-                (float) (startY+(endY-startY)*0.83),//
+                (float) (startX+(endX-startX)*0.12),//
+                (float) (startY+(endY-startY)*0.50),//
                 (float) (startX+(endX-startX)*0.88),//
-                (float) (startY+(endY-startY)*0.52),//
+                (float) (startY+(endY-startY)*0.50),//
                 endX,//
                 endY);
 

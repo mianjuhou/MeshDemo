@@ -18,6 +18,10 @@ public class CubicView extends View{
     private float mStartY;
     private float mEndX;
     private float mEndY;
+    private float mCStartX;
+    private float mCStartY;
+    private float mCEndX;
+    private float mCEndY;
     private float mX1;
     private float mY1;
     private float mX2;
@@ -45,6 +49,12 @@ public class CubicView extends View{
     private boolean order=true;
     private Paint mPaint;
     private Path mPath;
+
+    public void setOrderType(boolean order){
+        this.order=order;
+        requestLayout();
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -57,22 +67,37 @@ public class CubicView extends View{
         mEndX = mStartX *3;
         mEndY = mStartY *3;
 
-        if(order){
-
-        }else{
-
-        }
-
-        mX1 = mStartX+(mEndX-mStartX)*0.1f;
-        mY1 = mStartY+(mEndY-mStartY)*0.9f;
-
-        mX2 = mStartX+(mEndX-mStartX)*0.9f;
-        mY2 = mStartY+(mEndY-mStartY)*0.1f;
 
         mDx = mEndX-mStartX;
         mDy = mEndY-mStartY;
 
-        mPointerChange.change(0.1f,0.9f,0.9f,0.1f);
+        if(order){
+            mCStartX=mStartX;
+            mCStartY=mStartY;
+            mCEndX=mEndX;
+            mCEndY=mEndY;
+
+            mX1 = mStartX+mDx*0.1f;
+            mY1 = mStartY+mDy*0.9f;
+            mX2 = mStartX+mDx*0.9f;
+            mY2 = mStartY+mDy*0.1f;
+
+            mPointerChange.change(0.1f,0.9f,0.9f,0.1f);
+        }else{
+            mCStartX=mEndX;
+            mCStartY=mStartY;
+            mCEndX=mStartX;
+            mCEndY=mEndY;
+
+            mX1 = mStartX+mDx*0.9f;
+            mY1 = mStartY+mDy*0.9f;
+            mX2 = mStartX+mDx*0.1f;
+            mY2 = mStartY+mDy*0.1f;
+
+            mPointerChange.change(0.9f,0.9f,0.1f,0.1f);
+        }
+
+        invalidate();
     }
 
     @Override
@@ -81,8 +106,8 @@ public class CubicView extends View{
         canvas.drawRect(mStartX,mStartY,mEndX,mEndY,mPaint);
 
         mPath.reset();
-        mPath.moveTo(mStartX,mStartY);
-        mPath.cubicTo(mX1,mY1,mX2,mY2,mEndX,mEndY);
+        mPath.moveTo(mCStartX,mCStartY);
+        mPath.cubicTo(mX1,mY1,mX2,mY2,mCEndX,mCEndY);
         canvas.drawPath(mPath,mPaint);
 
         mPaint.setStyle(Paint.Style.FILL);
@@ -91,9 +116,9 @@ public class CubicView extends View{
         canvas.drawCircle(mX2,mY2,20,mPaint);
 
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawLine(mStartX,mStartY,mX1,mY1,mPaint);
+        canvas.drawLine(mCStartX,mCStartY,mX1,mY1,mPaint);
         canvas.drawLine(mX1,mY1,mX2,mY2,mPaint);
-        canvas.drawLine(mX2,mY2,mEndX,mEndY,mPaint);
+        canvas.drawLine(mX2,mY2,mCEndX,mCEndY,mPaint);
     }
     private int capture=0;
     @Override

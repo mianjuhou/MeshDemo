@@ -48,6 +48,13 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重置"
+            android:id="@+id/button_reset"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/button"/>
     </RelativeLayout>
     <com.fs.mv.MeshView
         android:id="@+id/mv"

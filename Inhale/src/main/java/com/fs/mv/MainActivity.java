@@ -104,5 +104,13 @@ public class MainActivity extends AppCompatActivity {
                 mMv.initView(drawingCache,left,top,right,bottom,dlocation,fwidth,fzx);
             }
         });
+
+        findViewById(R.id.button_reset).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTv.setVisibility(View.VISIBLE);
+                mMv.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 }

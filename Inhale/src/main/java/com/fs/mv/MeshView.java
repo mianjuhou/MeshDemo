@@ -59,6 +59,8 @@ public class MeshView extends View{
         mPercent=percent;
         mEndWidth=endWidth;
         mFzx=fzx;
+        once=true;
+        requestLayout();
     }
 
     @Override
